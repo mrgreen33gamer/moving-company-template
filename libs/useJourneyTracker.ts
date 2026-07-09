@@ -42,7 +42,7 @@ function appendToJourney(path: string): string[] {
 
 async function fireJourneyUpdate(sessionId: string, path: string) {
   try {
-    await fetch('/api/trackJourney', {
+    await fetch('/api/routeJourney', {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify({ sessionId, path }),
