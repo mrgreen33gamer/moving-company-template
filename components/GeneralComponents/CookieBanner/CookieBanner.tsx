@@ -27,11 +27,11 @@ const CookieBanner: React.FC = () => {
     if (stored === null) setShow(true);
   }, []);
 
-  const trackConsent = async (level: ConsentLevel) => {
+  const routeConsent = async (level: ConsentLevel) => {
     const parser = new UAParser();
     const ua     = parser.getResult();
     try {
-      await fetch('/api/trackConsent', {
+      await fetch('/api/routeConsent', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify({
@@ -52,7 +52,7 @@ const CookieBanner: React.FC = () => {
     localStorage.setItem('cookieConsent', level === 'full' ? 'true' : 'false');
     setCookieConsent(level);
     window.dispatchEvent(new Event('storage'));
-    trackConsent(level);
+    routeConsent(level);
     setShow(false);
   };
 
@@ -86,7 +86,7 @@ const CookieBanner: React.FC = () => {
                 <p className={styles.title} id="cookie-banner-title">
                   Cookie Preferences
                 </p>
-                <p className={styles.sub}>Arctic Air Template</p>
+                <p className={styles.sub}>SteadyLoad Moving</p>
               </div>
             </div>
 

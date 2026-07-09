@@ -12,7 +12,7 @@ export default function JourneyTrackerProvider({
 }) {
   const pathname = usePathname();
 
-  // Only mount tracker hook on non-admin, non-api paths
+  // Only mount routeer hook on non-admin, non-api paths
   const isTracked =
     !pathname?.startsWith('/admin') &&
     !pathname?.startsWith('/api')   &&
