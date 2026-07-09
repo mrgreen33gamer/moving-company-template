@@ -29,12 +29,12 @@ import {
 
 export default function HomePage() {
   const services = [
-    { icon: faTruck, title: "Local Moving", body: "Same-city and short-haul moves with careful crews, floor protection, and flat-rate quotes before load day.", link: "/services/local-moving" },
-    { icon: faRoute, title: "Long-Distance Moving", body: "Multi-city and interstate moves with written timelines and damage protection options.", link: "/services/long-distance" },
-    { icon: faBoxOpen, title: "Packing Services", body: "Full or partial packing with quality materials — kitchens and fragile rooms done right.", link: "/services/packing-services" },
-    { icon: faPeopleCarryBox, title: "Loading & Unloading", body: "Labor-only help when you already have the truck, POD, or trailer.", link: "/services/loading-only" },
-    { icon: faBuilding, title: "Office Moving", body: "Weekend and after-hours commercial moves that protect uptime.", link: "/services/office-moving" },
-    { icon: faWarehouse, title: "Storage Moves", body: "Unit transfers and storage-in-transit support across Central Texas.", link: "/services/storage-moves" },
+    { icon: faTruck, title: "Local Moving", body: "Same-city and short-haul moves with careful crews, floor protection, and flat-rate quotes before load day.", link: "/services/local-moving", image: "/pages/home/services/service-1.jpg" },
+    { icon: faRoute, title: "Long-Distance Moving", body: "Multi-city and interstate moves with written timelines and damage protection options.", link: "/services/long-distance", image: "/pages/home/services/service-2.jpg" },
+    { icon: faBoxOpen, title: "Packing Services", body: "Full or partial packing with quality materials — kitchens and fragile rooms done right.", link: "/services/packing-services", image: "/pages/home/services/service-3.jpg" },
+    { icon: faPeopleCarryBox, title: "Loading & Unloading", body: "Labor-only help when you already have the truck, POD, or trailer.", link: "/services/loading-only", image: "/pages/home/services/service-4.jpg" },
+    { icon: faBuilding, title: "Office Moving", body: "Weekend and after-hours commercial moves that protect uptime.", link: "/services/office-moving", image: "/pages/home/services/service-1.jpg" },
+    { icon: faWarehouse, title: "Storage Moves", body: "Unit transfers and storage-in-transit support across Central Texas.", link: "/services/storage-moves", image: "/pages/home/services/service-2.jpg" },
   ];
 
   const metrics = [
@@ -86,24 +86,26 @@ export default function HomePage() {
       <WelcomePage />
       <TrustBar headline="4.9★ Google Rating · 2,200+ reviews · 18,000+ moves" />
       <div className={styles.section}><ImpactMetrics metrics={metrics} cityName="Waco" /></div>
+      <div className={styles.section}><Variant4 title="Request Your Free Moving Quote" cityName="Waco" slug="home" spot="homepage-form" formVariant={1} /></div>
       <div className={styles.section}><ServiceCardComponent heading="Moving Services Built for Central Texas" cards={services} /></div>
       <div className={styles.section}><WhyChooseUs cityName="Waco" features={whyFeatures} title="Why Central Texas Chooses SteadyLoad" /></div>
       <CTABanner
-        headline="Get a Flat-Rate Moving Quote"
-        subline="Local & long-distance · Packing · Office · Storage. Call (254) 860-6060."
+        headline="Moves Without the Chaos."
+        subline="Local and regional moves with careful packing options, floor protection, and crews who show on time."
         primaryText="Call (254) 860-6060"
         primaryLink="tel:+12548606060"
-        secondaryText="Request a Quote"
+        secondaryText="Get Moving Quote"
         secondaryLink="/contact"
-      />
+      
+        imageSrc="/pages/home/welcome/hero-main.jpg"
+       />
       <div className={styles.section}><ProcessTimeline steps={processSteps} /></div>
-      <div className={styles.section}><WhatToExpect sectionTitle="What to Expect Working With SteadyLoad" expectations={expectations} /></div>
       <div className={styles.section}><Testimonials testimonials={reviews} /></div>
       <div className={styles.section}><GuaranteeSection /></div>
       <div className={styles.section}><LocalServiceAreas cityName="Waco" areas={localAreas} servicePath="services/local-moving" title="Proudly Serving Central Texas" /></div>
+      <div className={styles.section}><WhatToExpect sectionTitle="What to Expect Working With SteadyLoad" expectations={expectations} /></div>
       <div className={styles.section}><FAQ cityName="Waco" faq={faq} title="Moving FAQs" /></div>
       <div className={styles.section}><BlogPreviewGrid /></div>
-      <div className={styles.section}><Variant4 title="Request Your Free Moving Quote" cityName="Waco" slug="home" spot="homepage-form" formVariant={1} /></div>
     </main>
   );
 }

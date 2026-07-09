@@ -19,7 +19,7 @@ const ALL_POSTS: BlogPost[] = [
     category: 'Planning',
     date:     'July 3, 2026',
     readTime: 7,
-    imageSrc: '/pages/blogs/heat-pump.jpg',
+    imageSrc: '/pages/home/services/service-1.jpg',
     imageAlt: 'How to prepare for moving day in Waco TX',
     featured: true,
   },
@@ -30,7 +30,7 @@ const ALL_POSTS: BlogPost[] = [
     category: 'Packing',
     date:     'June 24, 2026',
     readTime: 6,
-    imageSrc: '/pages/blogs/energy-savings.jpg',
+    imageSrc: '/pages/home/welcome/after.jpg',
     imageAlt: 'Texas summer packing checklist for movers',
   },
   {
@@ -40,7 +40,7 @@ const ALL_POSTS: BlogPost[] = [
     category: 'Guides',
     date:     'June 15, 2026',
     readTime: 8,
-    imageSrc: '/pages/blogs/ac-replacement.jpg',
+    imageSrc: '/pages/home/welcome/hero-main.jpg',
     imageAlt: 'Local vs long-distance movers comparison Central Texas',
   },
 ];
