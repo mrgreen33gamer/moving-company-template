@@ -4,8 +4,8 @@ import styles from './styles.module.scss';
 
 interface BrandItem {
   name:     string;
-  type:     string; // 'brand' | 'cert' | 'tool'
-  icon?:    string; // emoji or short abbreviation for display
+  type:     string;
+  icon?:    string;
 }
 
 interface BrandGroup {
@@ -21,47 +21,47 @@ interface TechStackProps {
 
 const DEFAULT_GROUPS: BrandGroup[] = [
   {
-    label: 'Equipment Brands We Service',
+    label: 'How We Move',
     items: [
-      { name: 'Carrier',     type: 'brand', icon: '❄️' },
-      { name: 'Trane',       type: 'brand', icon: '❄️' },
-      { name: 'Lennox',      type: 'brand', icon: '❄️' },
-      { name: 'Rheem',       type: 'brand', icon: '❄️' },
-      { name: 'Goodman',     type: 'brand', icon: '❄️' },
-      { name: 'York',        type: 'brand', icon: '❄️' },
-      { name: 'Daikin',      type: 'brand', icon: '❄️' },
-      { name: 'American Standard', type: 'brand', icon: '❄️' },
+      { name: 'Local Crews',        type: 'brand', icon: '🚚' },
+      { name: 'Long-Distance',      type: 'brand', icon: '🛣️' },
+      { name: 'Full Packing',       type: 'brand', icon: '📦' },
+      { name: 'Partial Packing',    type: 'brand', icon: '📦' },
+      { name: 'Labor-Only Loading', type: 'brand', icon: '💪' },
+      { name: 'Office Relocations', type: 'brand', icon: '🏢' },
+      { name: 'Storage Transfers',  type: 'brand', icon: '🏬' },
+      { name: 'Senior Moves',       type: 'brand', icon: '❤️' },
     ],
   },
   {
-    label: 'Certifications & Licenses',
+    label: 'Credentials & Promises',
     items: [
-      { name: 'NATE Certified',      type: 'cert', icon: '✓' },
-      { name: 'TDLR Licensed',       type: 'cert', icon: '✓' },
-      { name: 'EPA 608 Certified',   type: 'cert', icon: '✓' },
-      { name: 'Fully Insured',       type: 'cert', icon: '✓' },
+      { name: 'TXDOT-Registered',              type: 'cert', icon: '✓' },
+      { name: 'Fully Bonded & Insured',        type: 'cert', icon: '✓' },
+      { name: 'On-Time Arrival Guarantee',     type: 'cert', icon: '✓' },
+      { name: 'Damage Protection Options',     type: 'cert', icon: '✓' },
     ],
   },
   {
-    label: 'System Types',
+    label: 'Service Types',
     items: [
-      { name: 'Central AC',          type: 'tool', icon: '🌡️' },
-      { name: 'Heat Pumps',          type: 'tool', icon: '🌡️' },
-      { name: 'Mini-Splits',         type: 'tool', icon: '🌡️' },
-      { name: 'Gas Furnaces',        type: 'tool', icon: '🌡️' },
-      { name: 'Duct Systems',        type: 'tool', icon: '🌡️' },
-      { name: 'Air Handlers',        type: 'tool', icon: '🌡️' },
+      { name: 'Local Moving',          type: 'tool', icon: '🏠' },
+      { name: 'Long-Distance Moving',  type: 'tool', icon: '🗺️' },
+      { name: 'Packing Services',      type: 'tool', icon: '📦' },
+      { name: 'Loading & Unloading',   type: 'tool', icon: '🏋️' },
+      { name: 'Office Moving',         type: 'tool', icon: '🏢' },
+      { name: 'Storage Moves',         type: 'tool', icon: '📦' },
     ],
   },
 ];
 
 const TechStack: React.FC<TechStackProps> = ({
-  title    = 'All Brands, All Systems',
-  subtitle = 'We service every major brand and system type — no brand-specific limitations, no excuses.',
+  title    = 'Professional Crews, Clear Promises',
+  subtitle = 'TXDOT-registered, fully bonded & insured — local and long-distance moves with packing, office, and storage support.',
   groups   = DEFAULT_GROUPS,
 }) => {
   return (
-    <section className={styles.section} aria-label="Brands and certifications">
+    <section className={styles.section} aria-label="Services and credentials">
       <div className={styles.container}>
 
         <motion.div
@@ -71,39 +71,31 @@ const TechStack: React.FC<TechStackProps> = ({
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
         >
-          <span className={styles.eyebrow}>What We Work With</span>
+          <span className={styles.eyebrow}>What We Bring to Every Move</span>
           <h2 className={styles.title}>{title}</h2>
           <p className={styles.subtitle}>{subtitle}</p>
         </motion.div>
 
         <div className={styles.groups}>
           {groups.map((group, gi) => (
-            <div key={gi} className={styles.group}>
-              <span className={styles.groupLabel}>{group.label}</span>
-              <div className={styles.items}>
-                {group.items.map((item, ii) => (
-                  <motion.div
-                    key={ii}
-                    className={`${styles.item} ${item.type === 'cert' ? styles.itemCert : ''}`}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, margin: '-20px' }}
-                    transition={{ delay: gi * 0.06 + ii * 0.04, duration: 0.4, ease: 'easeOut' }}
-                  >
-                    {item.type === 'cert' ? (
-                      <div className={styles.certCheck} aria-hidden="true">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
-                          <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                      </div>
-                    ) : (
-                      <div className={styles.itemDot} aria-hidden="true" />
-                    )}
+            <motion.div
+              key={group.label}
+              className={styles.group}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: gi * 0.08 }}
+            >
+              <h3 className={styles.groupLabel}>{group.label}</h3>
+              <div className={styles.itemGrid}>
+                {group.items.map((item) => (
+                  <div key={item.name} className={styles.item}>
+                    <span className={styles.itemIcon} aria-hidden="true">{item.icon}</span>
                     <span className={styles.itemName}>{item.name}</span>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

@@ -37,9 +37,9 @@ const DEFAULT_GUARANTEES: Guarantee[] = [
   },
   {
     icon: faShieldHalved,
-    title: "1-Year Parts & Labor Warranty",
+    title: "On-Time Arrival Guarantee · Damage Protection Options",
     description:
-      "Every repair we perform is covered for a full year — parts and labor. If it fails within 12 months, we fix it at no charge.",
+      "We arrive when we say we will — and offer damage protection options so your belongings stay covered from load to unload.",
   },
   {
     icon: faRotateLeft,
@@ -49,15 +49,15 @@ const DEFAULT_GUARANTEES: Guarantee[] = [
   },
   {
     icon: faCertificate,
-    title: "NATE-Certified Technicians",
+    title: "TXDOT-Registered Crews",
     description:
-      "Every tech who enters your home is NATE-certified and TDLR-licensed. No apprentices working alone — ever.",
+      "Every crew who enters your home works for a TXDOT-registered, bonded company — never unvetted day labor.",
   },
   {
     icon: faCalendarCheck,
     title: "No Contracts. No Lock-In.",
     description:
-      "Our maintenance plans are month-to-month. We earn your business with every visit — not by holding you hostage with a contract.",
+      "We earn your business with every visit — not by holding you hostage with a multi-year service contract.",
   },
   {
     icon: faStar,
@@ -71,7 +71,7 @@ const GuaranteeSection: React.FC<GuaranteeSectionProps> = ({
   title      = "Our Promise to You",
   headline   = "We back every job\nwith real guarantees.",
   guarantees = DEFAULT_GUARANTEES,
-  ctaText    = "Schedule Service",
+  ctaText    = "Get a Quote",
   ctaLink    = "/contact",
 }) => {
   const trackEvent = useTrackEvent();
@@ -92,7 +92,7 @@ const GuaranteeSection: React.FC<GuaranteeSectionProps> = ({
             ))}
           </h2>
           <p className={styles.body}>
-            Every HVAC company in Central Texas makes promises. We back ours in writing — with flat-rate pricing, certified technicians, and a 1-year warranty on every repair we touch.
+            Every moving company in Central Texas makes promises. We back ours in writing — with flat-rate quotes, TXDOT-registered crews, and an On-Time Arrival Guarantee · Damage Protection Options on every job.
           </p>
           <Link
             href={ctaLink}
@@ -117,7 +117,7 @@ const GuaranteeSection: React.FC<GuaranteeSectionProps> = ({
                 </svg>
               ))}
             </div>
-            <span className={styles.ratingText}>4.9 · 300+ verified Google reviews</span>
+            <span className={styles.ratingText}>4.9 · 800+ verified Google reviews</span>
           </div>
         </div>
 

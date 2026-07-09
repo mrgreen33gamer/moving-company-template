@@ -23,32 +23,32 @@ const AboutStory: React.FC<AboutStoryProps> = ({ cityName }) => {
         <div className={styles.storyBody}>
           <div className={styles.storyPull}>
             <p className={styles.pullQuote}>
-              "We started Arctic Air because we were tired of watching homeowners get ripped off by fly-by-night HVAC contractors."
+              &quot;We started SteadyLoad Moving because we were tired of watching families get burned by no-shows and surprise invoices on move day.&quot;
             </p>
             <div className={styles.pullAttrib}>
-              <span className={styles.pullName}>— Mike Hawkins</span>
-              <span className={styles.pullTitle}>Founder, Arctic Air HVAC</span>
+              <span className={styles.pullName}>— Tara Benson</span>
+              <span className={styles.pullTitle}>Founder, SteadyLoad Moving</span>
             </div>
           </div>
 
           <div className={styles.storyText}>
             <p className={styles.storyParagraph}>
-              Founded in 2010 in Waco, TX, Arctic Air HVAC started with one truck and one principle:
-              give homeowners the straight story about their system, charge a fair price, and back the
-              work with a real warranty. No hourly billing surprises, no upsell pressure, no contracts.
+              Founded in 2009 in Waco, TX, SteadyLoad Moving started with one truck and one principle:
+              give families a clear plan, charge a fair price, and show up on time. No hidden fees,
+              no bait-and-switch quotes, no unvetted day labor.
             </p>
             <p className={styles.storyParagraph}>
               Today we proudly serve <strong>{cityName}</strong> and every surrounding community —
-              from China Spring to Killeen — with a crew of NATE-certified, TDLR-licensed technicians
+              from China Spring to Killeen — with TXDOT-registered, fully bonded &amp; insured crews
               who live and work right here in Central Texas.
             </p>
 
             <div className={styles.milestones}>
               {[
-                { year: '2010', label: 'Founded in Waco' },
-                { year: '2014', label: 'Expanded to 5 techs' },
-                { year: '2018', label: '1,000 customers served' },
-                { year: '2024', label: '2,400+ systems serviced' },
+                { year: '2009', label: 'Founded in Waco' },
+                { year: '2014', label: 'Expanded multi-crew ops' },
+                { year: '2018', label: '10,000 moves completed' },
+                { year: '2024', label: '18,000+ moves completed' },
               ].map((m, i) => (
                 <div key={i} className={styles.milestone}>
                   <span className={styles.milestoneYear}>{m.year}</span>

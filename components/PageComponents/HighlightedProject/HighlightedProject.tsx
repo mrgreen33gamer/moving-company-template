@@ -20,7 +20,7 @@ const HighlightedProject: React.FC<HighlightedProjectProps> = ({
   description,
   imageSrc,
   imageAlt,
-  projectLink = "https://scottapps.com/invoicing",
+  projectLink = "https://steadyloadmoving.com/invoicing",
   ctaLink = "/?pageSection=1",
 }) => {
   return (
@@ -35,7 +35,7 @@ const HighlightedProject: React.FC<HighlightedProjectProps> = ({
               <Link
                 href={projectLink}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noloading help noreferrer"
                 className={styles.btnPrimary}
               >
                 Try Invoicing Software
