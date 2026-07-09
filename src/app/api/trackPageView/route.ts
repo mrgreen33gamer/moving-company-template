@@ -1,4 +1,4 @@
-// src/app/api/trackPageView/route.ts
+// src/app/api/routePageView/route.ts
 // FIXED: sessionId required, isDevTest detection improved, admin paths fully skipped
 import { NextRequest, NextResponse } from 'next/server';
 import { MongoDB } from '&/mongodb';
@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error('[trackPageView] error:', err);
+    console.error('[routePageView] error:', err);
     return NextResponse.json({ ok: false });
   }
 }

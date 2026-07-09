@@ -1,4 +1,4 @@
-// src/app/api/trackJourney/route.ts
+// src/app/api/routeJourney/route.ts
 // FIXED: Skips admin + api + _next paths, robust upsert
 import { NextRequest, NextResponse } from 'next/server';
 import { MongoDB } from '&/mongodb';
@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error('[trackJourney] error:', err);
+    console.error('[routeJourney] error:', err);
     return NextResponse.json({ ok: false });
   }
 }

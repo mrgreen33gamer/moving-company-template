@@ -1,11 +1,11 @@
-// src/app/api/trackSession/route.ts
+// src/app/api/routeSession/route.ts
 //
 // FIXED: Removed sectionsTracked — that was old scroll-section data no longer used.
 // Now only stores: sessionId, deviceType, operatingSystem, browserType, ip, city, timestamp.
 //
 // AUDIT FIX: Wired up from <Analytics /> to fire once per session.
 //   - Switched plain insertOne → upsert keyed on sessionId. Defense in depth:
-//     even if the client-side `sa_session_tracked` flag is bypassed (multi-tab
+//     even if the client-side `sa_session_routeed` flag is bypassed (multi-tab
 //     race, incognito edge case, intentional storage clear mid-session, etc.),
 //     we'll still only ever have one SessionTracking row per sessionId.
 //   - $setOnInsert preserves the original firstSeenAt / ip / city so they
@@ -13,7 +13,7 @@
 //   - $set updates lastSeenAt + the latest UA fields on every hit, so the
 //     row stays useful for diagnosing devices/networks that change mid-session.
 //   - Skips admin / api / _next paths via referer header (parity with the
-//     other /api/track* routes — third layer of admin exclusion).
+//     other /api/route* routes — third layer of admin exclusion).
 import { NextRequest, NextResponse } from 'next/server';
 import { MongoDB } from '&/mongodb';
 import { getClientIP, getCityFromIP } from '&/geoIpProvider';
@@ -87,7 +87,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('[trackSession] error:', error);
+    console.error('[routeSession] error:', error);
     return NextResponse.json({ success: false }, { status: 500 });
   }
 }

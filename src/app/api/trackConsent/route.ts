@@ -1,4 +1,4 @@
-// src/app/api/trackConsent/route.ts
+// src/app/api/routeConsent/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { MongoClient } from 'mongodb';
 
@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true }, { status: 200 });
   } catch (err) {
-    console.error('[trackConsent] error:', err);
+    console.error('[routeConsent] error:', err);
     // Return 200 so the client never shows an error for a non-critical call
     return NextResponse.json({ ok: false }, { status: 200 });
   }
