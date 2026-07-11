@@ -33,8 +33,8 @@ export default function HomePage() {
     { icon: faRoute, title: "Long-Distance Moving", body: "Multi-city and interstate moves with written timelines and damage protection options.", link: "/services/long-distance", image: "/pages/home/services/service-2.jpg" },
     { icon: faBoxOpen, title: "Packing Services", body: "Full or partial packing with quality materials — kitchens and fragile rooms done right.", link: "/services/packing-services", image: "/pages/home/services/service-3.jpg" },
     { icon: faPeopleCarryBox, title: "Loading & Unloading", body: "Labor-only help when you already have the truck, POD, or trailer.", link: "/services/loading-only", image: "/pages/home/services/service-4.jpg" },
-    { icon: faBuilding, title: "Office Moving", body: "Weekend and after-hours commercial moves that protect uptime.", link: "/services/office-moving", image: "/pages/home/services/service-1.jpg" },
-    { icon: faWarehouse, title: "Storage Moves", body: "Unit transfers and storage-in-transit support across Central Texas.", link: "/services/storage-moves", image: "/pages/home/services/service-2.jpg" },
+    { icon: faBuilding, title: "Office Moving", body: "Weekend and after-hours commercial moves that protect uptime.", link: "/services/office-moving", image: "/pages/home/welcome/before.jpg" },
+    { icon: faWarehouse, title: "Storage Moves", body: "Unit transfers and storage-in-transit support across Central Texas.", link: "/services/storage-moves", image: "/pages/home/welcome/after.jpg" },
   ];
 
   const metrics = [

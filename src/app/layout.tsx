@@ -97,7 +97,7 @@ export const metadata: Metadata = {
     siteName: "SteadyLoad Moving",
     images: [
       {
-        url: `${BASE_URL}/logos/scott-apps-banner.png?v=1`,
+        url: `${BASE_URL}/pages/home/welcome/hero-main.jpg`,
         width: 1200,
         height: 630,
         alt: "SteadyLoad Moving — Waco TX Local & Long-Distance Movers",
@@ -111,7 +111,7 @@ export const metadata: Metadata = {
     title: "SteadyLoad Moving | Waco TX Movers",
     description:
       "Local & long-distance moves, packing, and office relocations for Central Texas. TXDOT-registered & insured — On-Time Arrival Guarantee.",
-    images: [`${BASE_URL}/logos/scott-apps-banner.png?v=1`],
+    images: [`${BASE_URL}/pages/home/welcome/hero-main.jpg`],
   },
   robots: {
     index: true,
