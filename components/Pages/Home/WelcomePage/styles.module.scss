@@ -1,5 +1,6 @@
-// Hero E — Dominant testimonial quote card
-// @use path assumes adaptation into components/Pages/Home/WelcomePage/
+// SteadyLoad Moving — Home hero
+// Photographic parallax stage (navy brand scrim) + authentic mover-crew photo
+// card. Replaces the previous testimonial-quote archetype.
 @use '../../../../src/app/globalVariables.scss' as *;
 
 .hero {
@@ -7,6 +8,7 @@
   min-height: 100svh;
   background: $obsidian;
   overflow: hidden;
+  isolation: isolate;
 
   &::before {
     content: '';
@@ -19,16 +21,37 @@
   }
 }
 
-.shard {
-  position: absolute; top: 0; right: 0;
-  width: 48%; height: 100%;
-  background: linear-gradient(135deg, transparent 0%, rgba($orange, 0.025) 40%, rgba($orange, 0.055) 100%);
-  clip-path: polygon(26% 0%, 100% 0%, 100% 100%, 0% 100%);
-  pointer-events: none; z-index: 1;
+// ── Photographic parallax background ─────────────────────────────────────────
+.bgLayer {
+  position: absolute;
+  top: -8%;
+  left: 0;
+  width: 100%;
+  height: 116%;
+  z-index: 0;
+  will-change: transform;
+}
+
+.bgImage {
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+// Navy brand scrim — keeps the photo on-brand and the headline legible.
+// Darker on the left (text column), lighter on the right (photo card).
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 82% 16%, rgba($orange, 0.18) 0%, rgba($orange, 0) 55%),
+    linear-gradient(100deg, rgba(15, 29, 48, 0.95) 0%, rgba(18, 35, 58, 0.82) 42%, rgba(20, 40, 66, 0.5) 74%, rgba(20, 40, 66, 0.34) 100%),
+    linear-gradient(180deg, rgba(15, 29, 48, 0.35) 0%, rgba(15, 29, 48, 0) 32%, rgba(15, 29, 48, 0.55) 100%);
 }
 
 .layout {
-  position: relative; z-index: 2;
+  position: relative; z-index: 3;
   max-width: 1380px; margin: 0 auto;
   padding: clamp(6rem, 11vh, 9rem) clamp(1.5rem, 5vw, 5rem) clamp(5rem, 9vh, 7rem);
   display: grid;
@@ -53,8 +76,8 @@
   display: inline-flex; align-items: center; gap: 0.55rem;
   font-family: $textFont; font-size: 0.72rem; font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase;
-  color: rgba($orange, 0.9);
-  border: 1px solid rgba($orange, 0.28); background: rgba($orange, 0.07);
+  color: $lightorange;
+  border: 1px solid rgba($orange, 0.38); background: rgba($orange, 0.1);
   border-radius: 9999px; padding: 0.35rem 0.95rem; width: fit-content;
 }
 
@@ -80,7 +103,7 @@
 
 .sub {
   font-family: $textFont; font-size: clamp(1rem, 1.4vw, 1.15rem);
-  line-height: 1.55; color: rgba($white, 0.62); max-width: 34rem; margin: 0;
+  line-height: 1.55; color: rgba($offwhite, 0.78); max-width: 34rem; margin: 0;
   @media (max-width: 960px) { max-width: 28rem; }
 }
 
@@ -101,11 +124,11 @@
 .ctaSecondary {
   display: inline-flex; align-items: center; gap: 0.4rem;
   font-family: $headerFont; font-size: 0.92rem; font-weight: 700;
-  color: rgba($white, 0.85); text-decoration: none;
+  color: rgba($white, 0.9); text-decoration: none;
   padding: 0.85rem 1.2rem; border-radius: 8px;
-  border: 1px solid rgba($white, 0.14);
+  border: 1px solid rgba($white, 0.18);
   transition: border-color 0.18s, background 0.18s;
-  &:hover { border-color: rgba($white, 0.28); background: rgba($white, 0.04); }
+  &:hover { border-color: rgba($orange, 0.55); background: rgba($white, 0.05); }
 }
 
 .chips {
@@ -117,10 +140,10 @@
   display: inline-flex; align-items: center; gap: 0.35rem;
   font-family: $textFont; font-size: 0.72rem; font-weight: 600;
   letter-spacing: 0.04em; text-transform: uppercase;
-  color: rgba($white, 0.55);
+  color: rgba($offwhite, 0.7);
   padding: 0.35rem 0.7rem; border-radius: 999px;
-  border: 1px solid rgba($white, 0.08); background: rgba($white, 0.03);
-  svg { color: rgba($orange, 0.8); }
+  border: 1px solid rgba($white, 0.1); background: rgba($white, 0.04);
+  svg { color: $orange; }
 }
 
 .visual {
@@ -131,150 +154,105 @@
   align-items: center;
 }
 
-// ── Quote card ─────────────────────────────────────────────────────────────
+// ── Authentic mover-crew photo card (replaces the testimonial quote) ─────────
 
-.card {
+.photoCard {
   position: relative;
   width: 100%;
-  max-width: 480px;
-  margin: 0;
-  padding: clamp(1.75rem, 3.5vw, 2.5rem) clamp(1.5rem, 3vw, 2.25rem);
-  border-radius: 20px;
-  background:
-    linear-gradient(155deg, rgba($white, 0.07) 0%, rgba($white, 0.025) 55%, rgba($orange, 0.04) 100%);
-  border: 1px solid rgba($white, 0.12);
-  box-shadow:
-    0 32px 72px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba($white, 0.08);
+  max-width: 460px;
+  aspect-ratio: 4 / 5;
+  border-radius: $radius-lg;
   overflow: hidden;
-  text-align: left;
+  border: 1px solid rgba($orange, 0.3);
+  box-shadow:
+    inset 0 1px 0 rgba($white, 0.1),
+    0 30px 60px -20px rgba(0, 0, 0, 0.7),
+    0 0 0 6px rgba($orange, 0.06);
 
   @media (max-width: 960px) {
-    max-width: 420px;
     margin: 0 auto;
   }
 }
 
-.cardGlow {
-  position: absolute;
-  top: -40%;
-  right: -20%;
-  width: 70%;
-  height: 70%;
-  background: radial-gradient(circle, rgba($orange, 0.12) 0%, transparent 68%);
-  pointer-events: none;
+.photo {
+  object-fit: cover;
+  object-position: center;
 }
 
-.quoteMark {
+// Navy-to-shadow glaze so the overlays stay readable
+.photoGlaze {
   position: absolute;
-  top: 0.35rem;
-  left: 1rem;
-  font-family: $titleFont;
-  font-size: 6.5rem;
-  line-height: 1;
-  font-weight: 800;
-  color: rgba($orange, 0.18);
-  pointer-events: none;
-  user-select: none;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(15, 29, 48, 0) 42%, rgba(15, 29, 48, 0.78) 100%),
+    linear-gradient(300deg, rgba($orange, 0.16) 0%, rgba($orange, 0) 46%);
 }
 
-.stars {
-  position: relative;
-  z-index: 1;
+.photoBadge {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: $textFont;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $white;
+  background: rgba(15, 29, 48, 0.6);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba($orange, 0.34);
+  border-radius: $radius-pill;
+  padding: 0.4rem 0.85rem;
+}
+
+.photoBadgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $lightorange;
+  box-shadow: 0 0 8px 1px rgba($orange, 0.8);
+  flex-shrink: 0;
+}
+
+.specCard {
+  position: absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  bottom: 0.9rem;
   display: flex;
-  gap: 0.3rem;
-  margin-bottom: 1.15rem;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.85rem 1rem;
+  border-radius: $radius-md;
+  background: rgba(15, 29, 48, 0.62);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba($orange, 0.24);
+  text-align: left;
 }
 
-.starOn {
-  color: $orange;
+.specRow {
   display: inline-flex;
-  filter: drop-shadow(0 0 6px rgba($orange, 0.4));
-}
+  align-items: center;
+  gap: 0.55rem;
+  font-family: $headerFont;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba($offwhite, 0.94);
 
-.starOff {
-  color: rgba($white, 0.2);
-  display: inline-flex;
-}
-
-.quote {
-  position: relative;
-  z-index: 1;
-  margin: 0 0 1.75rem;
-
-  p {
-    margin: 0;
-    font-family: $headerFont;
-    font-size: clamp(1.2rem, 2.2vw, 1.55rem);
-    font-weight: 600;
-    line-height: 1.45;
-    letter-spacing: -0.01em;
-    color: rgba($white, 0.92);
+  svg {
+    color: $lightorange;
+    flex-shrink: 0;
   }
 }
 
-.author {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba($white, 0.08);
-}
-
-.avatarImg {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid rgba($orange, 0.45);
-  box-shadow: 0 0 0 3px rgba($orange, 0.12);
-  flex-shrink: 0;
-}
-
-.avatarFallback {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: $headerFont;
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: $obsidian;
-  background: linear-gradient(145deg, $lightorange, $orange);
-  border: 2px solid rgba($orange, 0.45);
-  box-shadow: 0 0 0 3px rgba($orange, 0.12);
-}
-
-.authorText {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  min-width: 0;
-}
-
-.authorName {
-  font-family: $headerFont;
-  font-size: 0.95rem;
-  font-weight: 700;
-  font-style: normal;
-  color: $white;
-  letter-spacing: 0.01em;
-}
-
-.authorMeta {
-  font-family: $textFont;
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: rgba($white, 0.5);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+@media (max-width: 960px) {
+  .photoCard {
+    max-width: 380px;
+    aspect-ratio: 4 / 3;
+  }
 }
 
 /* === UNIQUENESS IDENTITY LAYER — moving-company-template === */
@@ -289,11 +267,6 @@
   grid-template-columns: minmax(0, 1.14fr) 1fr !important;
   gap: clamp(3.82rem, 4vw, 5.32rem) !important;
   padding-top: clamp(8.39rem, 11vh, 10.39rem) !important;
-}
-
-.shard {
-  clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%) !important;
-  opacity: 0.53 !important;
 }
 
 .headline {
@@ -320,6 +293,7 @@
   transform: scale(1.032);
 }
 
+.photoCard,
 .statCard,
 .console,
 .dialCard,
@@ -332,31 +306,6 @@
 }
 
 /* end identity layer */
-
-/* === HERO PATTERN UNIQUENESS — moving-company-template === */
-.hero {
-  &::before {
-    content: '' !important;
-    position: absolute !important;
-    inset: 0 !important;
-    background-image: repeating-linear-gradient(57deg, transparent 0 18px, rgba($orange, 0.025) 18px 19px),
-      repeating-linear-gradient(-57deg, transparent 0 18px, rgba($white, 0.018) 18px 19px) !important;
-    background-size: auto !important;
-    opacity: 0.96 !important;
-    pointer-events: none !important;
-    z-index: 0 !important;
-  }
-
-  &::after {
-    content: '' !important;
-    position: absolute !important;
-    inset: 0 !important;
-    background-image: radial-gradient(ellipse 50% 40% at 61% 26%, rgba($orange, 0.050), transparent 70%), radial-gradient(ellipse 40% 50% at 91% 68%, rgba($white, 0.03), transparent 65%) !important;
-    pointer-events: none !important;
-    z-index: 0 !important;
-  }
-}
-/* end hero pattern */
 
 /* === MOBILE HERO FOLD SAFETY (fleet QA) === */
 @media (max-width: 640px) {
@@ -393,10 +342,10 @@
 }
 
 /* === TABLET + MOBILE HERO VISUAL DEFER (fleet QA) === */
-/* Hide side dials/meters on tablet & phone so the hero fold stays clean */
+/* NOTE: the authentic photo card is intentionally kept visible on tablet &
+   phone — the visual-hiding selector was removed so the hero photo always
+   shows. Legacy dial/meter chrome from other archetypes stays deferred. */
 @media (max-width: 960px) {
-  .visual,
-  .heroVisual,
   .meterWrap,
   .rightCol,
   .heroArt {
@@ -460,58 +409,5 @@
     width: 100% !important;
     justify-content: center !important;
     box-sizing: border-box !important;
-  }
-
-  .jobRail,
-  .jobStrip,
-  .shotRail {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 0.65rem !important;
-    width: 100% !important;
-    max-width: 22rem !important;
-    margin: 0 auto !important;
-  }
-
-  .collageGrid,
-  .collage {
-    grid-template-columns: 1fr !important;
-    grid-template-rows: auto !important;
-    min-height: 0 !important;
-    max-width: 22rem !important;
-    width: 100% !important;
-  }
-
-  .tileMain,
-  .tileSide,
-  .tile {
-    grid-column: auto !important;
-    grid-row: auto !important;
-    min-height: 140px !important;
-  }
-
-  .plantDialGrid {
-    grid-template-columns: 1fr 1fr !important;
-    max-width: 100% !important;
-  }
-
-  .scanCard {
-    grid-template-columns: 1fr !important;
-    gap: 0.35rem !important;
-  }
-
-  .scanRight {
-    align-items: flex-start !important;
-  }
-
-  .materials,
-  .matGrid,
-  .swatchGrid {
-    grid-template-columns: 1fr 1fr !important;
-  }
-
-  .statGrid,
-  .statsRow {
-    grid-template-columns: 1fr 1fr !important;
   }
 }
