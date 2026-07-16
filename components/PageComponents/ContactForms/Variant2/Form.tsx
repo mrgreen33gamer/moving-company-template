@@ -199,7 +199,7 @@ export default function Variant2({ title, cityName, slug, spot, formVariant }: V
                     )}
                     <button type="submit" disabled={isSubmitting} className={styles.submitBtn}>
                       {isSubmitting
-                        ? <PulseLoader size={8} color="#0d1b2a" />
+                        ? <PulseLoader size={8} color="#0d1a2a" />
                         : <><span>Book Free Quote</span><FontAwesomeIcon icon={faArrowRight} /></>}
                     </button>
                   </form>

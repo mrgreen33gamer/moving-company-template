@@ -56,8 +56,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit:  "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#1e3a5f" },
-    { media: "(prefers-color-scheme: dark)",  color: "#1e3a5f" },
+    { media: "(prefers-color-scheme: light)", color: "#1e375f" },
+    { media: "(prefers-color-scheme: dark)",  color: "#1e375f" },
   ],
   colorScheme: "dark",
 };
@@ -236,7 +236,7 @@ export default function RootLayout({
           <Header />
         </ConditionalShell>
 
-        <NextTopLoader color="#38bdf8" showSpinner={false} />
+        <NextTopLoader color="#0361a1" showSpinner={false} />
 
         <Suspense fallback={null}>
           <Analytics />
@@ -252,10 +252,10 @@ export default function RootLayout({
                   alignItems: "center",
                   width: "100%",
                   height: "100vh",
-                  background: "#1e3a5f",
+                  background: "#1e375f",
                 }}
               >
-                <PulseLoader size={50} color="#38bdf8" />
+                <PulseLoader size={50} color="#0361a1" />
               </div>
             }
           >

@@ -46,8 +46,8 @@
   pointer-events: none;
   background:
     radial-gradient(120% 90% at 82% 16%, rgba($orange, 0.18) 0%, rgba($orange, 0) 55%),
-    linear-gradient(100deg, rgba(15, 29, 48, 0.95) 0%, rgba(18, 35, 58, 0.82) 42%, rgba(20, 40, 66, 0.5) 74%, rgba(20, 40, 66, 0.34) 100%),
-    linear-gradient(180deg, rgba(15, 29, 48, 0.35) 0%, rgba(15, 29, 48, 0) 32%, rgba(15, 29, 48, 0.55) 100%);
+    linear-gradient(100deg, rgba(15, 27, 48, 0.95) 0%, rgba(18, 33, 58, 0.82) 42%, rgba(20, 38, 66, 0.5) 74%, rgba(20, 38, 66, 0.34) 100%),
+    linear-gradient(180deg, rgba(15, 27, 48, 0.35) 0%, rgba(15, 27, 48, 0) 32%, rgba(15, 27, 48, 0.55) 100%);
 }
 
 .layout {
@@ -184,7 +184,7 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(15, 29, 48, 0) 42%, rgba(15, 29, 48, 0.78) 100%),
+    linear-gradient(180deg, rgba(15, 27, 48, 0) 42%, rgba(15, 27, 48, 0.78) 100%),
     linear-gradient(300deg, rgba($orange, 0.16) 0%, rgba($orange, 0) 46%);
 }
 
@@ -201,7 +201,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: $white;
-  background: rgba(15, 29, 48, 0.6);
+  background: rgba(15, 27, 48, 0.6);
   backdrop-filter: blur(6px);
   border: 1px solid rgba($orange, 0.34);
   border-radius: $radius-pill;
@@ -227,7 +227,7 @@
   gap: 0.45rem;
   padding: 0.85rem 1rem;
   border-radius: $radius-md;
-  background: rgba(15, 29, 48, 0.62);
+  background: rgba(15, 27, 48, 0.62);
   backdrop-filter: blur(8px);
   border: 1px solid rgba($orange, 0.24);
   text-align: left;
